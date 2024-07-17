@@ -1,0 +1,10 @@
+django
+djangorestframework
+markdown
+django-filter
+drf-yasg
+setuptools
+django-jazzmin
+django-jet-reboot
+google-api-python-client
+FeedParser
