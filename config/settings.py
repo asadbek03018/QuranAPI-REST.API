@@ -33,8 +33,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'jet.dashboard',
-    'jet',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,13 +46,11 @@ INSTALLED_APPS = [
       # required for serving swagger ui's css/js files
     'drf_yasg',
     #Local
-
     'quran_books',
-    'quran_uz',
-    'quran_arabic',
-    'quran_ru',
-    'quran_eng',
+    'quran',
+    
 
+    
 
 ]
 

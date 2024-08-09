@@ -43,18 +43,10 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-    path('jet/', include('jet.urls', 'jet')),
-    path('api/v2/admin/', admin.site.urls),
+    path('api/v3/admin/', admin.site.urls),
     path('api/auth/login/uz/', include('rest_framework.urls')),
-    path('api/v2/uz/', include('quran_uz.urls')), #Lang uz
-    path('api/v2/arabic/', include('quran_arabic.urls')), #Lang arabic
-    path('api/v2/english/', include('quran_eng.urls')), #Lang english
-    path('api/v2/rus/', include('quran_ru.urls')), # Lang rus
-    path('api/v2/book/', include('quran_books.urls')),
-    path('api/v2/swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    path('api/v2/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('api/v2/redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path('api/v3/', include('quran.urls')), #Lang uz
+
 
 
 
