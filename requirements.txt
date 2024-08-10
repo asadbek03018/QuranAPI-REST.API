@@ -1,3 +1,5 @@
+psycopg2-binary
+psycopg[binary]
 dj_database_url
 djangorestframework
 markdown
