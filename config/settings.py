@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+
+import os
 from pathlib import Path
+
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +30,6 @@ SECRET_KEY = 'django-insecure-d4e((1#zgzppez^_n!ctzph-k78xq0_pf+_d1qmk$am#0lbq@_
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 
 
@@ -89,11 +92,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default= f"postgresql://asadbek1803:ogwOPq5ZZs8qTrmzYBPXnA@witty-tuna-1420.jxf.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert={BASE_DIR}/root.crt",
+        engine='django_cockroachdb'
+    )
 }
 
 
@@ -131,7 +136,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-import os
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR/'static')

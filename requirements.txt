@@ -1,4 +1,4 @@
-django
+
 djangorestframework
 markdown
 django-filter
@@ -8,3 +8,5 @@ django-jazzmin
 django-jet-reboot
 google-api-python-client
 FeedParser
+django==5.1
+django-cockroachdb==5.1
