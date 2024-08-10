@@ -95,10 +95,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 import dj_database_url
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default= f"&sslrootcert={BASE_DIR}/root.crt",
-        engine='django_cockroachdb'
-    )
+    'default': {
+        'ENGINE': 'django_cockroachdb',
+        'NAME': 'defaultdb',
+        'USER': 'asadbek1803',
+        'PASSWORD': 'ogwOPq5ZZs8qTrmzYBPXnA',  # CockroachDB panelida ko'rsatilgan parolni kiriting
+        'HOST': 'witty-tuna-1420.jxf.cockroachlabs.cloud',
+        'PORT': '26257',
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'sslrootcert': str(BASE_DIR / 'root.crt'),  # CA sertifikati fayl nomini to'g'rilang
+        },
+    }
 }
 
 
