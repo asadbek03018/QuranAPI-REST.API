@@ -25,6 +25,10 @@ class OyatForSuraSerializer(serializers.ModelSerializer):
 #         ref_name = 'OyatUzbek'
 #         fields = ('oyat_number', 'translate', 'audio', 'author')
 
+class SuraForView(serializers.ModelSerializer):
+    class Meta:
+        model = Sura
+        fields = ('id', 'name')
 
 class SuraSerializer(serializers.ModelSerializer):
     oyatlar = OyatForSuraSerializer(many=True)  # Use the correct related name 'oyatlar'

@@ -20,7 +20,7 @@ from django.urls import re_path
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-
+from quran.views import home
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,7 +28,7 @@ from django.conf.urls.static import static
 schema_view = get_schema_view(
    openapi.Info(
       title="Quran Online API",
-      default_version='v2',
+      default_version='v3.0',
       description="Bu api orqali siz quronu karimning oyatlari suralari va ma'nolarini topishingiz mumkin. Audiolari bilan birga",
       terms_of_service="https://t.me/asadbek_074/",
       contact=openapi.Contact(email="asadbekoffical1202@gmail.com"),
@@ -43,9 +43,11 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    path('', home, name='home'),
     path('api/v3/admin/', admin.site.urls),
     path('api/auth/login/uz/', include('rest_framework.urls')),
     path('api/v3/', include('quran.urls')), #Lang uz
+    
 
 
 

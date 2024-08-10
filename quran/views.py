@@ -5,7 +5,7 @@ from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import SuraSerializer, OyatForSuraSerializer, SuraForOyatSerializer
+from .serializers import SuraSerializer, OyatForSuraSerializer, SuraForOyatSerializer, SuraForView
 
 from .models import Sura, Oyat, Author
 
@@ -47,6 +47,15 @@ from .models import Sura, Oyat, Author
 #         oyat = sura.oyat.get(oyat_number=oyat_number)
 #         return oyat
 
+
+def home(request):
+    return render(request, 'index.html')
+
+
+def all_suras(request):
+    suras = Sura.objects.all().values('id', 'name')
+    serializer = SuraForView(suras, many=True)
+    return JsonResponse(serializer.data, safe=False)
 
 class SuraList(generics.RetrieveAPIView):
     serializer_class = SuraSerializer
