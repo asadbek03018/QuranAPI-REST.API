@@ -96,7 +96,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default= f"postgresql://asadbek1803:ogwOPq5ZZs8qTrmzYBPXnA@witty-tuna-1420.jxf.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full&sslrootcert={BASE_DIR}/root.crt",
+        default= f"&sslrootcert={BASE_DIR}/root.crt",
         engine='django_cockroachdb'
     )
 }
